@@ -1,3 +1,6 @@
+<!-- Copyright 2026 NVIDIA CORPORATION
+SPDX-License-Identifier: Apache-2.0 -->
+
 # Go memory budgets
 
 KAI executables derive Go's soft memory limit from their container cgroups before
