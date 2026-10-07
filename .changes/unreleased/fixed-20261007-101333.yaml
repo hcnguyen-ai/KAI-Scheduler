@@ -3,4 +3,4 @@ body: |-
   Apply cgroup-aware Go memory budgets to all KAI components and reduce controller cache overhead
 custom:
   Author: "hcnguyen-ai"
-  Issue: "227"
+  Issue: "2345"
