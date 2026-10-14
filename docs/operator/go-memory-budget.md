@@ -4,9 +4,10 @@ SPDX-License-Identifier: Apache-2.0 -->
 # Go memory budgets
 
 KAI executables derive Go's soft memory limit from their container cgroups before
-constructing application clients, caches, or plugins. The scheduler retains its
-90% default. All other build targets use 85%, including controllers, operator,
-resource reservation, node services, Helm hooks, snapshot tools, and simulators.
+constructing application clients, caches, or plugins. All build targets default
+to 90%, matching the scheduler's existing budget. This includes controllers,
+operator, resource reservation, node services, Helm hooks, snapshot tools, and
+simulators.
 This leaves headroom for memory outside the Go runtime.
 
 The budget refreshes every 15 seconds and stops when the process entrypoint

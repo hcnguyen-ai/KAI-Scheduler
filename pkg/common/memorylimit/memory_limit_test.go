@@ -139,13 +139,13 @@ func TestStartMemoryLimitManagerRejectsInvalidRatio(t *testing.T) {
 	assert.True(t, strings.Contains(err.Error(), RatioEnv))
 }
 
-func TestControllerDefaultRatio(t *testing.T) {
+func TestProcessDefaultRatio(t *testing.T) {
 	t.Setenv(RatioEnv, "")
 	require.NoError(t, os.Unsetenv(RatioEnv))
-	ratio, err := resolveRatio(0.85)
+	ratio, err := resolveRatio(defaultProcessRatio)
 	require.NoError(t, err)
-	assert.Equal(t, 0.85, ratio)
-	assert.Equal(t, int64(3650722201), calculate(4<<30, ratio))
+	assert.Equal(t, 0.9, ratio)
+	assert.Equal(t, int64(3865470566), calculate(4<<30, ratio))
 }
 
 func TestEmptyGoMemLimitDoesNotSkipConfiguration(t *testing.T) {
