@@ -9,12 +9,14 @@ import (
 	"os"
 )
 
+const defaultProcessRatio = 0.9
+
 // RunMain configures a process memory budget before application initialization.
 func RunMain(run func()) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	if err := Start(ctx, Config{
-		DefaultRatio: 0.85,
+		DefaultRatio: defaultProcessRatio,
 		LogInfo:      log.Printf,
 		LogWarning:   log.Printf,
 	}); err != nil {
